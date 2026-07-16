@@ -11,15 +11,17 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start; /* Allows scrolling if content is long */
+            min-height: 100vh;
             margin: 0;
-            overflow: hidden;
+            overflow-x: hidden; /* Stops sideways scrolling */
+            overflow-y: auto; /* Enables smooth up/down scrolling */
             text-align: center;
+            padding: 20px 0;
         }
         .card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
+            padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(10px);
@@ -27,18 +29,21 @@
             max-width: 85%;
             width: 450px;
             z-index: 10;
+            margin: auto; /* Centers the card nicely */
         }
         h1 {
             color: #ff4d6d;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 15px;
             animation: pulse 2s infinite;
         }
         p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
             color: #c5c6c7;
             white-space: pre-wrap;
+            margin: 0;
         }
         .heart {
             position: absolute;
@@ -46,6 +51,7 @@
             font-size: 20px;
             animation: float 5s linear infinite;
             opacity: 0;
+            pointer-events: none; /* Keeps hearts from blocking taps */
         }
         @keyframes float {
             0% { transform: translateY(100vh) scale(0); opacity: 1; }
@@ -63,17 +69,17 @@
 
     <div class="card">
         <h1>Happy Birthday, Olya! 🎂❤️</h1>
-        <p>Even though there are miles between us right now, you are always the closest person to my heart. 
+        <p>Even though there are miles between us right now, you are always the closest person to my heart.
 
-Happy birthay My love ❤️ Today is a very special day ,i wanted to make it the best day for you ,
-but i don't know how to do much , from this far away , but i am trying what i can do to make your day beautiful ,
-memorable. You are the best thing ever happened to me , you are the one of the gift for ne from god ,
-i cant loose you at anything , maybe in words i cant express my feeling that mach , but i know no one can 
-love you in the way i do , bcz i love so much and more tyen anything and also promise me on this beautiful day ,
-that you will leave leave me and we will do every possible thing for eachother and we will always keep eachother
-the priority and we will never give up on each other , may god give you a long and a happy life with me 
-, stay happy stay blessed and again (Happy Birthay My Darling , my everything... I love you so much more then
-            that even you cant image❤️😚 , ✨</p>
+Happy birthday My love ❤️ Today is a very special day, i wanted to make it the best day for you, but i don't know how to do much from this far away, but i am trying what i can do to make your day beautiful and memorable. 
+
+You are the best thing ever happened to me, you are the gift for me from god, i cant lose you at anything. Maybe in words i cant express my feelings that much, but i know no one can love you in the way i do, bcz i love you so much and more than anything. 
+
+Also promise me on this beautiful day, that you will never leave me and we will do every possible thing for each other, and we will always keep each other the priority and we will never give up on each other.
+
+May god give you a long and a happy life with me, stay happy and keep smiling. 
+
+(Happy Birthday My Darling, my everything, I love you so much more than yesterday!)</p>
     </div>
 
     <script>
@@ -87,7 +93,8 @@ the priority and we will never give up on each other , may god give you a long a
             document.body.appendChild(heart);
             setTimeout(() => { heart.remove(); }, 6000);
         }
-        setInterval(createHeart, 300);
+        setInterval(createHeart, 350);
     </script>
 </body>
 </html>
+
